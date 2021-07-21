@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>중앙시네마</title>
 </head>
 <body>
 	<%@ include file="header2.jsp"%>
-	<div style="width: 80%; min-height: 700px; margin-left: 20%; margin-left: 20%;">
-		<h1>메인메뉴</h1>
-	</div>
+	<div style="max-width: 1100px; min-height: 700px; margin-left: 20%; margin-top: 5%;margin-right: 15%;">
+            <h1>메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴</h1>
+    </div>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>

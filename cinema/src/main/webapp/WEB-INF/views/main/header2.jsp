@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <div class="body-wrap">
         <header id="header" class="main-header no-bg none-ad">
             <h1 class="ci">

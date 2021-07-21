@@ -10,6 +10,11 @@
 <%-- ${path}를 사용하면 패키지내의 정보가 절대경로로 변경됨 --%>
 <link rel="stylesheet" type="text/css" href="${path}/resources/bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="${path}/resources/bootstrap/js/jquery.js"></script>
+<script type="text/javascript" src="${path}/resources/bootstrap/js/front.js?v=1626279299959"></script>
 <script type="text/javascript" src="${path}/resources/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/header.css">
-<script type="text/javascript" src="${path}/resources/js/header.js"></script>
+<style>
+	#header.no-bg #gnb>ul>li>a.gnb-txt-theater{background-image:url("${path}/resources/images/소통.png")}
+}	#footer .footer-bottom .ci{background:url("${path}/resources/중앙시네마.png")}
+}	#header .ci a{background:url("${path}/resources/중앙시네마.png")}
+</style>
