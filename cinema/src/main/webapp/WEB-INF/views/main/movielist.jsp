@@ -10,7 +10,7 @@
 <body>
 	<%@ include file="header2.jsp"%>
 	<div class="inner-wrap">
-            <h1>메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴메인메뉴</h1>
+            <h1>movie List</h1>
     </div>
 	<%@ include file="footer.jsp"%>
 </body>
