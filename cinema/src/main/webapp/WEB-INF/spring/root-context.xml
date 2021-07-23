@@ -27,4 +27,7 @@
 		destroy-method="close">
 		<constructor-arg ref="hikariConfig"></constructor-arg>
 	</bean>
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
 </beans>

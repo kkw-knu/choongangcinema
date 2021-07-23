@@ -14,4 +14,8 @@ public class MovieController {
 	public String main() {
 		return "/main/main";
 	}
+	@RequestMapping("movielist.do")
+	public String movielist() {
+		return "/main/movielist";
+	}
 }

@@ -7,7 +7,7 @@
             </h1>
             <div class="util-area">
                 <div class="left-link">
-                    <a href="#">메인</a>
+                    <a href="main.do">메인</a>
                     <a href="#">멤버십</a>
                     <a href="#">고객센터</a>
                 </div>
@@ -21,12 +21,12 @@
                 </div>
                 <nav id="gnb" class="">
                     <ul class="gnb-depth1">
-                        <li class=""><a href="#" class="gnb-txt-movie">영화</a>
+                        <li class=""><a href="movielist.do" class="gnb-txt-movie">영화</a>
                             <div class="gnb-depth2">
                                 <ul>
-                                    <li><a href="#">전체영화</a></li>
-                                    <li><a href="#">N스크린</a></li>
-                                    <li><a href="#">큐레이션</a></li>
+                                    <li><a href="movielist.do">전체영화</a></li>
+                                    <li><a href="#">현재상영작</a></li>
+                                    <li><a href="#">상영예정작</a></li>
                                 </ul>
                             </div>
                         </li>
