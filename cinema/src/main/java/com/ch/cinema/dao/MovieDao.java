@@ -1,5 +1,7 @@
 package com.ch.cinema.dao;
 
-public interface MovieDao {
+import com.ch.cinema.model.Movie;
 
+public interface MovieDao {
+	int movieinsert(Movie movie);
 }

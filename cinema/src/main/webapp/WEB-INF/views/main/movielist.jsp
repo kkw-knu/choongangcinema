@@ -12,7 +12,7 @@
 	<div class="inner-wrap">
             <h1>movie List</h1>
             <div align="center">
-		<a href="insertForm.do?num=0&pageNum=1" class="btn btn-success sm">영화등록</a>
+		<a href="movieinsertForm.do?num=0&pageNum=1" class="btn btn-success sm">영화등록</a>
 		</div>
     </div>
 	<%@ include file="footer.jsp"%>

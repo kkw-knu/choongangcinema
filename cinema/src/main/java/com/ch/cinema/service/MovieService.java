@@ -1,5 +1,7 @@
 package com.ch.cinema.service;
 
-public interface MovieService {
+import com.ch.cinema.model.Movie;
 
+public interface MovieService {
+	int movieinsert(Movie movie);
 }
