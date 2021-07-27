@@ -10,10 +10,8 @@
 <body>
 	<%@ include file="header2.jsp"%>
 	<div class="inner-wrap">
-            <h1>movie List</h1>
-            <div align="center">
-		<a href="insertForm.do?num=0&pageNum=1" class="btn btn-success sm">영화등록</a>
-		</div>
+            <h1>영화 등록창</h1>
+
     </div>
 	<%@ include file="footer.jsp"%>
 </body>
