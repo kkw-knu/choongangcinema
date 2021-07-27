@@ -4,7 +4,7 @@
 <mapper namespace="moviens">
 	<insert id="movieinsert" parameterType="movie">
 		insert into movie values(#{mv_title}, #{mv_director},
-		 #{mv_genre},'y', #{mv_img}, #{mv_content},
+		 #{mv_genre},'y', #{fileName}, #{mv_content},
 		  #{mv_startdate}, #{mv_time})
 	</insert>
 </mapper>

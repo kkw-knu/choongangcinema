@@ -34,7 +34,7 @@ public class MovieController {
 		return "/main/movieinsertForm";
 	}
 	@RequestMapping("movieinsert.do")
-	public String movieupload(@RequestParam("file") MultipartFile mf,Movie movie,
+	public String movieupload(@RequestParam("mv_img") MultipartFile mf,Movie movie,
 			Model model, HttpSession session) throws IOException {
 		String fileName = mf.getOriginalFilename();
 		String real = session.getServletContext().getRealPath("/resources/upload");

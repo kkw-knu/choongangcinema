@@ -11,6 +11,6 @@ public class MovieDaoImpl implements MovieDao{
 	@Autowired
 	private SqlSessionTemplate sst;
 	public int movieinsert(Movie movie) {
-		return sst.insert("moviens.insert", movie);
+		return sst.insert("moviens.movieinsert", movie);
 	}
 }
