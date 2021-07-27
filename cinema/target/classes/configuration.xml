@@ -2,5 +2,11 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	
+	<typeAliases>
+		<typeAlias alias="movie" type="com.ch.cinema.model.Movie"/>
+	</typeAliases>
+	<!-- 메퍼정보 설정 -->
+	<mappers>
+		<mapper resource="movie.xml"/>
+	</mappers>
 </configuration>

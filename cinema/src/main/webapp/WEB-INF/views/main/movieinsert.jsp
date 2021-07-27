@@ -9,10 +9,18 @@
 </head>
 <body>
 	<%@ include file="header2.jsp"%>
-	<div class="inner-wrap">
-            <h1>영화 등록창</h1>
-
-    </div>
+	<c:if test="${result > 0 }">
+		<script type="text/javascript">
+			alert("영화가 등록 되었습니다.");
+			location.href = "main.do";
+		</script>
+	</c:if>
+	<c:if test="${result == 0 }">
+		<script type="text/javascript">
+			alert("영화 등록에 실패하였습니다.");
+			history.back();
+		</script>
+	</c:if>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
