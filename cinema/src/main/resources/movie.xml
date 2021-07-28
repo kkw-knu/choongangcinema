@@ -3,8 +3,8 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="moviens">
 	<insert id="movieinsert" parameterType="movie">
-		insert into movie values(#{mv_title}, #{mv_director},
-		 #{mv_genre},'y', ${fileName}, #{mv_content},
-		  #{mv_startdate}, #{mv_time})
+		insert into movie values(#{mv_title},#{mv_director},
+		 #{mv_genre},#{mv_grade},#{mv_img},#{mv_content},
+		 #{mv_startdate},#{mv_time})
 	</insert>
 </mapper>

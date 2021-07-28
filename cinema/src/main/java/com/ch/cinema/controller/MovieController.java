@@ -33,8 +33,8 @@ public class MovieController {
 		model.addAttribute("pageNum", pageNum);
 		return "/main/movieinsertForm";
 	}
-	@RequestMapping("movieinsert.do")
-	public String movieupload(@RequestParam("mv_img") MultipartFile mf,Movie movie,
+	@RequestMapping("movieinsertchk.do")
+	public String movieinsertchk(@RequestParam("file") MultipartFile mf,Movie movie,
 			Model model, HttpSession session) throws IOException {
 		String fileName = mf.getOriginalFilename();
 		String real = session.getServletContext().getRealPath("/resources/upload");
@@ -42,11 +42,15 @@ public class MovieController {
 		fos.write(mf.getBytes());
 		fos.close();
 		int fileSize = (int)mf.getSize();
-		int result = ms.movieinsert(movie);
 		model.addAttribute("fileName", fileName);
 		model.addAttribute("fileSize", fileSize);
-		model.addAttribute("result", result);
 		model.addAttribute("movie", movie);
+		return "/main/movieinsertchk";
+	}
+	@RequestMapping("movieinsert.do")
+	public String movieinsert(Movie movie, Model model) {
+		int result = ms.movieinsert(movie);
+		model.addAttribute("result", result);
 		return "/main/movieinsert";
 	}
 	

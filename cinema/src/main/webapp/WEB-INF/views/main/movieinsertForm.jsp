@@ -10,7 +10,7 @@
 <body>
 	<%@ include file="header2.jsp"%>
 	<div class="inner-wrap">
-			<form class="form-horizontal" action="movieinsert.do" method="post" enctype="multipart/form-data">
+			<form class="form-horizontal" action="movieinsertchk.do" method="post" enctype="multipart/form-data">
 				<br><h2 class="text-primary" align="center">영화등록하기</h2><br><br>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="mv_title">영화제목 :</label>
@@ -27,7 +27,7 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="mv_time">상영시간 :</label>
 					<div class="col-sm-8">
-						<input type="text" class="form-control" id="mv_time" name="mv_time" required="required" placeholder="상영시간(분)으로 입력해주세요 ex)120">
+						<input type="number" class="form-control" id="mv_time" name="mv_time" required="required" placeholder="상영시간(분)으로 입력해주세요 ex)120">
 					</div>
 				</div>
 				<div class="form-group">
@@ -104,7 +104,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2" for="mv_genre">영화등급 :</label>
+					<label class="control-label col-sm-2" for="mv_grade">영화등급 :</label>
 					<div class="col-sm-8">
 						<div class="radio">
 							<label class="radio-inline">
@@ -128,10 +128,10 @@
 						<input type="date" class="form-control" id="mv_startdate" name="mv_startdate" required="required">
 					</div>
 				</div>
-				<div class="form-group">
+				<div class="form-group" id="img">
 					<label class="control-label col-sm-2" for="mv_img">포스터사진 <span class="glyphicon glyphicon-picture"></span></label>
 					<div class="col-sm-8">
-						<input type="file" class="form-control btn btn-default" id="mv_img" name="mv_img" required="required">
+						<input type="file" class="btn btn-default" id="file" name="file" required="required">
 					</div>
 				</div>
 				<div align="center">
