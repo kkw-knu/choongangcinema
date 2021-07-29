@@ -3,8 +3,19 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="moviens">
 	<insert id="movieinsert" parameterType="movie">
-		insert into movie values(#{mv_title},#{mv_director},
+		insert into movie values(#{mv_num},#{mv_title},#{mv_director},
 		 #{mv_genre},#{mv_grade},#{mv_img},#{mv_content},
 		 #{mv_startdate},#{mv_time})
 	</insert>
+	<select id="getMaxNum" resultType="integer">
+		select nvl(max(mv_num),0) + 1 from movie
+	</select>
+	<select id="getTotal" resultType="integer">
+		select count(*) from movie
+	</select>
+	<select id="list" parameterType="movie" resultType="movie">
+		select * from (select a.*, rowNum rn from (select * from movie
+			order by mv_num desc) a)
+				where rn between #{startRow} and #{endRow}
+	</select>
 </mapper>

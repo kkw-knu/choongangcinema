@@ -136,6 +136,7 @@
 				</div>
 				<div align="center">
 					<input type="submit" class="btn btn-default" value="등록하기">
+					<button onclick="history.back()" class="btn btn-default sm">돌아가기</button>
 				</div>
 			</form>
     </div>
