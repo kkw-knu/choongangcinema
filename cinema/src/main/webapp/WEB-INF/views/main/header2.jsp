@@ -160,7 +160,7 @@
                                 <li><a href="#" target="_blank" title="온라인제보센터">온라인제보센터</a></li>
                                 <li><a href="#" target="_blank" title="자료">IR자료</a></li>
                                 <li><a href="#" target="_blank" title="인재채용림">인재채용</a></li>
-                                <li><a href="#" target="_blank" title="윤리경영">윤리경영</a></li>
+                                <li><a href="main.do" target="_blank" title="윤리경영">윤리경영</a></li>
                             </ul>
                         </div>
             

@@ -11,6 +11,7 @@
 	<%@ include file="header2.jsp"%>
 	<div class="inner-wrap">
       	<h1>movie List</h1>
+      	
       	<table class="table table-striped">
       	<tr><th>번호</th><th>영화이름</th><th>감독명</th><th>등급</th><th>개봉일</th><th>이미지사진</th></tr>
       	<c:if test="${empty list }">
@@ -24,7 +25,7 @@
 							class="btn btn-info btn-sm" >${movie.mv_content }</a>
 						</td>
 					<td>${movie.mv_director }</td>
-					<td>${movie.mv_grade }</td>
+					<td><img alt="${movie.mv_grade }" src="resources/images/${movie.mv_grade}.png"></td>
 					<td>${movie.mv_startdate }</td>
 					<td><img alt="${movie.mv_img }" src="resources/upload/${movie.mv_img }" width="300"></td></tr>
 			</c:forEach>
