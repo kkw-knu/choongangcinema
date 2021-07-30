@@ -16,5 +16,5 @@
 <style>
 	#header.no-bg #gnb>ul>li>a.gnb-txt-theater{background-image:url("${path}/resources/images/소통.png")}
 	#footer .footer-bottom .ci{background-image:url("${path}/resources/images/중앙시네마.png")}
-	#header .ci a{background-image:url("${path}/resources/images/중앙시네마.png")}
+	#header.no-bg .ci a{background-image:url("${path}/resources/images/중앙시네마.png")}
 </style>

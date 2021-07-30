@@ -10,27 +10,54 @@
 <body>
 	<%@ include file="header2.jsp"%>
 	<div class="inner-wrap">
-      	<h1>movie List</h1>
-      	
-      	<table class="table table-striped">
-      	<tr><th>번호</th><th>영화이름</th><th>감독명</th><th>등급</th><th>개봉일</th><th>이미지사진</th></tr>
+		<br>
+      	<h1>전체영화</h1>
+      	<br>
       	<c:if test="${empty list }">
-			<tr><th colspan="6">영화가 없습니다</th></tr>
+			<p>영화가 없습니다.</p>
 		</c:if>
-		<c:if test="${not empty list }">
-			<c:forEach var="movie" items="${list }">
-				<tr><td>${movie.mv_num}</td>
-					<td title="${movie.mv_title }">
-						<a href="view.do?mv_num=${movie.mv_num }&pageNum=${pb.currentPage}"
-							class="btn btn-info btn-sm" >${movie.mv_content }</a>
-						</td>
-					<td>${movie.mv_director }</td>
-					<td><img alt="${movie.mv_grade }" src="resources/images/${movie.mv_grade}.png"></td>
-					<td>${movie.mv_startdate }</td>
-					<td><img alt="${movie.mv_img }" src="resources/upload/${movie.mv_img }" width="300"></td></tr>
-			</c:forEach>
-		</c:if>
-		</table>
+		<div class="movie-list">
+			<ol class="list" id="movieList">
+				<c:if test="${not empty list }">
+					<c:forEach var="movie" items="${list }">
+					<li tabindex="0" class="no-img">
+						<div class="movie-list-info">
+							<img src="resources/upload/${movie.mv_img }" alt="${movie.mv_img }" class="poster lozad" onerror="noImg(this)">
+							<div class="movie-score" style="opacity:0;">
+								<a href="#" class="wrap movieBtn">
+									<div class="summary">
+										${movie.mv_content }
+									</div>
+									<div class="my-score big">
+										<div class="preview">
+											<p class="tit">관람평</p>
+											<p class="number">0<span class="ir">점</span> <!-- 별점 리뷰넣으면서 넣을거 -->
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="tit-area">
+							<p class="movie-grade" style="background-image: url('resources/images/${movie.mv_grade}.png');"></p>
+							<p class="tit">${movie.mv_title }</p>
+						</div>
+						<div class="rate-date">
+							<span class="date">개봉일 : ${movie.mv_startdate }</span>
+						</div>
+						<div class="btn-util">
+							<button type="button" class="button btn-like"> <!-- 찜 수임 -->
+								<i class="iconset ico-heart-toggle-gray intrstType"></i>
+								<span>10</span><!-- 찜 수 -->
+							</button>
+							<span class="case movieStat4">
+								<a href="#" class="button gblue bokdBtn">예매</a>
+							</span>
+						</div>
+					</li>
+					</c:forEach>
+				</c:if>
+			</ol>
+		</div>
             <div align="center">
 	            <ul class="pagination">
 	            	<c:if test="${pb.startPage > pb.pagePerBlock }">
