@@ -44,6 +44,7 @@ public class MovieController {
 		model.addAttribute("num", num);
 		model.addAttribute("pb", pb);
 		model.addAttribute("list", list);
+		model.addAttribute("total", total);
 		return "/main/movielist";
 	}
 	@RequestMapping("movieinsertForm.do")

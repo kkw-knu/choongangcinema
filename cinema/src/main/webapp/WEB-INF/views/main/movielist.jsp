@@ -12,6 +12,7 @@
 	<div class="inner-wrap">
 		<br>
       	<h1>전체영화</h1>
+      	<h4>총 ${total }건의 영화가 있습니다.</h4>
       	<br>
       	<c:if test="${empty list }">
 			<p>영화가 없습니다.</p>
