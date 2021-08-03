@@ -4,9 +4,11 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="movie" type="com.ch.cinema.model.Movie"/>
+		<typeAlias type="com.ch.cinema.model.Moviem" alias="moviem"/>
 	</typeAliases>
 	<!-- 메퍼정보 설정 -->
 	<mappers>
 		<mapper resource="movie.xml"/>
+		<mapper resource="moviem.xml"/>
 	</mappers>
 </configuration>

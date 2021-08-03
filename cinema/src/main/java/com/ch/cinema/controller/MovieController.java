@@ -37,7 +37,6 @@ public class MovieController {
 		movie.setStartRow(startRow);
 		movie.setEndRow(endRow);
 		List<Movie> list = ms.list(movie);
-		/* List<Board> list = bs.list(startRow, endRow); */
 		int num = total - startRow + 1;
 		PagingBean pb = new PagingBean(currentPage, rowPerPage, total);
 		model.addAttribute("movie", movie);

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="moviemns">
+<!-- Use type aliases to avoid typing the full classname every time. -->
+	<resultMap id="moviemResult" type="moviem">
+		<result property="mid" 			column="mid"/>
+		<result property="pass" 		column="pass"/>
+		<result property="name" 		column="name"/>
+		<result property="birth" 		column="birth"/>
+		<result property="gender" 		column="gender"/>
+		<result property="hp" 			column="hp"/>
+		<result property="address" 		column="address"/>
+		<result property="del" 			column="del"/>
+		<result property="joindate" 	column="joindate"/>
+		
+	</resultMap>
+	<select id="total" parameterType="moviem" resultType="int">
+		select count(*) from moviem 
+		<where>
+			<if test="keyword!=null and keyword!=''">
+				<if test="search != 'subcon'">
+					${search} like '%'||#{keyword}||'%'
+				</if>
+				<if test="search == 'subcon'">
+					mid like '%'||#{keyword}||'%' or
+					name like '%'||#{keyword}||'%' 
+				</if>
+			</if>
+		</where>	
+	</select>
+<!--<select id="list" parameterType="hashmap" resultMap="boardResult"> -->
+	<select id="list" parameterType="moviem" resultMap="moviemResult">
+		 select * from (select a.*, rowNum rn from (
+			select * from moviem 
+		<where>
+			<if test="keyword!=null and keyword!=''">
+				<if test="search != 'subcon'">
+					${search} like '%'||#{keyword}||'%'
+				</if>
+				<if test="search == 'subcon'">
+					mid like '%'||#{keyword}||'%' or
+					name like '%'||#{keyword}||'%' 
+				</if>
+			</if>
+		</where>
+		order by joindate desc) a) 
+				where rn between #{startRow} and #{endRow} 					
+	</select>
+	<select id="select" parameterType="string" resultType="moviem">
+		select * from moviem where mid=#{mid} and del!='y'
+	</select>
+	
+	<insert id="insert" parameterType="moviem">
+		insert into moviem values(#{mid},#{pass},#{name},#{birth},
+		#{gender},#{hp},#{address},'n',sysdate)
+	</insert>
+	<update id="update" parameterType="moviem">
+		update moviem set pass=#{pass}, hp=#{hp}, birth=#{birth}, address=#{address} where mid=#{mid}
+	</update>
+	<update id="delete" parameterType="int">
+		update moviem set del='y' where mid=#{mid}
+	</update>
+</mapper>
+
+
+
