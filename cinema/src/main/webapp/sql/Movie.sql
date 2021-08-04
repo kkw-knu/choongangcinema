@@ -1,13 +1,19 @@
 create table movie (
-	mv_num number primary key, 			--¿µÈ­ÄÚµå
-	mv_title varchar2(50) not null,		--Á¦¸ñ
-	mv_director varchar2(30) not null,	--°¨µ¶
-	mv_genre varchar2(50) not null,		--Àå¸£
-	mv_grade varchar2(20) not null,		--°ü¶÷µî±Ş
-	mv_img varchar2(100) not null,		--¿µÈ­Æ÷½ºÅÍ
-	mv_content varchar2(1024) not null,	--¿µÈ­ÁÙ°Å¸®
-	mv_startdate date not null,			--°³ºÀÀÏÀÚ
-	mv_time number not null				--»ó¿µ½Ã°£(ºĞ)
+   mv_num number primary key,          --ì˜í™”ì½”ë“œ
+   mv_title varchar2(50) not null,      --ì œëª©
+   mv_director varchar2(30) not null,   --ê°ë…
+   mv_genre varchar2(50) not null,      --ì¥ë¥´
+   mv_grade varchar2(20) not null,      --ê´€ëŒë“±ê¸‰
+   mv_img varchar2(100) not null,      --ì˜í™”í¬ìŠ¤í„°
+   mv_content varchar2(1024) not null,   --ì˜í™”ì¤„ê±°ë¦¬
+   mv_startdate date not null,         --ê°œë´‰ì¼ì
+   mv_time number not null            --ìƒì˜ì‹œê°„(ë¶„)
 );
---¿µÈ­ Á¤º¸ Å×ÀÌºí 
+select * from MOVIE;
+
+--ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ 
 drop table movie;
+
+--ORA-02449: unique/primary keys in table referenced by foreign keys (0 rows affected) ëœ¨ë©´ ì´ë ‡ê²Œ
+-- drop table TABLE_NAME cascade constraints;
+drop table movie cascade constraints;
