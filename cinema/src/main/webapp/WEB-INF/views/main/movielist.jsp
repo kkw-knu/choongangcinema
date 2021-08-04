@@ -25,7 +25,7 @@
 						<div class="movie-list-info">
 							<img src="resources/upload/${movie.mv_img }" alt="${movie.mv_img }" class="poster lozad" onerror="noImg(this)">
 							<div class="movie-score" style="opacity:0;">
-								<a href="#" class="wrap movieBtn">
+								<a href="movieview.do?mv_num=${movie.mv_num }&pageNum=${pb.currentPage}" class="wrap movieBtn">
 									<div class="summary">
 										${movie.mv_content }
 									</div>
@@ -47,7 +47,7 @@
 						</div>
 						<div class="btn-util">
 							<button type="button" class="button btn-like"> <!-- 찜 수임 -->
-								<i class="iconset ico-heart-toggle-gray intrstType"></i>
+								<i class="iconset ico-heart-toggle-gray intrstType on"></i>
 								<span>10</span><!-- 찜 수 -->
 							</button>
 							<span class="case movieStat4">

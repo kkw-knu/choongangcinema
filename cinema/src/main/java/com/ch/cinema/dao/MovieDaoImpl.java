@@ -21,8 +21,10 @@ public class MovieDaoImpl implements MovieDao{
 	public int getTotal() {
 		return sst.selectOne("moviens.getTotal");
 	}
-	@Override
 	public List<Movie> list(Movie movie) {
 		return sst.selectList("moviens.list", movie);
+	}
+	public Movie select(int mv_num) {
+		return sst.selectOne("moviens.select", mv_num);
 	}
 }

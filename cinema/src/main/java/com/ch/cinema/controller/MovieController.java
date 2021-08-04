@@ -74,5 +74,12 @@ public class MovieController {
 		model.addAttribute("result", result);
 		return "/main/movieinsert";
 	}
+	@RequestMapping("movieview.do")
+	public String movieview(int mv_num, String pageNum, Model model) {
+		Movie movie = ms.select(mv_num);
+		model.addAttribute("movie", movie);
+		model.addAttribute("pageNum", pageNum);
+		return "/main/movieview";
+	}
 	
 }

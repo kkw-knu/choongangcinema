@@ -24,4 +24,7 @@ public class MovieServiceImpl implements MovieService{
 	public List<Movie> list(Movie movie) {
 		return md.list(movie);
 	}
+	public Movie select(int mv_num) {
+		return md.select(mv_num);
+	}
 }

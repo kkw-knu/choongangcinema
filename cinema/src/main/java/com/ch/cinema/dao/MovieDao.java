@@ -9,4 +9,5 @@ public interface MovieDao {
 	int getMaxNum();
 	int getTotal();
 	List<Movie> list(Movie movie);
+	Movie select(int mv_num);
 }
