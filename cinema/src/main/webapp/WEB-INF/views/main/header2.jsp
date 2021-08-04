@@ -17,7 +17,7 @@
 					</c:when>
 					<c:otherwise>
 						<a href="logout.do">로그아웃</a>
-             		</c:otherwise>
+             			</c:otherwise>
              			
 				</c:choose>
 				<c:choose>
@@ -59,8 +59,8 @@
 						</div></li>
 					<li><a href="#" style="display: initial;">커뮤니티</a></li>
 					<li><a href="#" title="스토어">스토어</a></li>
-					<li class=""><a href="#" class="gnb-txt-store">스토어</a></li>
-					<li class=""><a href="#" class="gnb-txt-theater">소통</a>
+					<li class=""><a href="#" class="gnb-txt-store" title="소통">스토어</a></li>
+					<li class=""><a href="#" class="gnb-txt-theater" title="극장">극장</a>
 						<div class="gnb-depth2">
 							<ul>
 								<li><a href="#">영화게시판</a></li>

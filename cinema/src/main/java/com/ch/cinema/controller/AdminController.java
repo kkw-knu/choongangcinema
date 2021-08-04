@@ -35,7 +35,7 @@ public class AdminController {
 		model.addAttribute("pp", pp);
 		model.addAttribute("no", no);
 		model.addAttribute("list", list);
-		String[] ops = {"ID","¿Ã∏ß","º∫∫∞","ID+¿Ã∏ß"};
+		String[] ops = {"ID","Ïù¥Î¶Ñ","ÏÑ±Î≥Ñ","ID+Ïù¥Î¶Ñ"};
 		model.addAttribute("keyword",moviem.getKeyword());
 		model.addAttribute("search", moviem.getSearch());
 		model.addAttribute("ops",ops);

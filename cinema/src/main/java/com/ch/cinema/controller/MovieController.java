@@ -30,7 +30,7 @@ public class MovieController {
 	public String movielist(Movie movie, String pageNum, Model model) {
 		if (pageNum == null || pageNum.equals("")) pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
-		int rowPerPage = 8;  // 한 화면에 보여주는 게시글 갯수
+		int rowPerPage = 8;
 		int total = ms.getTotal();
 		int startRow = (currentPage - 1) * rowPerPage + 1;
 		int endRow = startRow + rowPerPage - 1;

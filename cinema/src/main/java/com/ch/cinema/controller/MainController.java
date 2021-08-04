@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ch.cinema.model.Movie;
 import com.ch.cinema.model.Moviem;
-import com.ch.cinema.service.MovieService;
 import com.ch.cinema.service.MoviemService;
 
 

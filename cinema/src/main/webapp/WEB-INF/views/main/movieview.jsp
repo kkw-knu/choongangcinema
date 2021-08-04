@@ -8,7 +8,6 @@
 <title>중앙시네마</title>
 </head>
 <body>
-	<c:set var="id" value="${sessionScope.mid}"></c:set><!-- 세션체크 -->
 	<%@ include file="header2.jsp"%>
     	<div class="movie-detail-page">
     		<div class="bg-img" style="backgraound-image:url('resources/upload/${movie.mv_img }');"></div>

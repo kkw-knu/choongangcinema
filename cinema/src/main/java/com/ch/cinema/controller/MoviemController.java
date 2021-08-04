@@ -29,10 +29,9 @@ public class MoviemController {
 	@RequestMapping("midChk")
 	public String midChk(String mid, Model model) {
 		Moviem moviem = ms.select(mid); 
-		/* System.out.println(mid+ " "+ moviem); */
 		String msg = "";
-		if(moviem==null) msg = "»ç¿ë°¡´ÉÇÑ ID ÀÔ´Ï´Ù.";
-		else msg = "ÀÌ¹Ì »ç¿ëÁßÀÎ ID ÀÔ´Ï´Ù.";
+		if(moviem==null) msg = "ì‚¬ìš©ê°€ëŠ¥í•œ ID ì…ë‹ˆë‹¤.";
+		else msg = "ì´ë¯¸ ì‚¬ìš©ì¤‘ì¸ ID ì…ë‹ˆë‹¤.";
 		model.addAttribute("msg", msg);
 		return "member/midChk";
 	}
@@ -40,8 +39,8 @@ public class MoviemController {
 	public String passChk(String pass, Model model) {
 		Moviem moviem = ms.select(pass);
 		String msg = "";
-		if(moviem==null) msg = "ºñ¹øÀÌ ´Ù¸¨´Ï´Ù";
-		else msg = "È¯¿µÇÕ´Ï´Ù.";
+		if(moviem==null) msg = "ë¹„ë²ˆì´ ë‹¤ë¦…ë‹ˆë‹¤";
+		else msg = "í™˜ì˜í•©ë‹ˆë‹¤.";
 		model.addAttribute("msg", msg);
 		return "member/passChk";
 		
