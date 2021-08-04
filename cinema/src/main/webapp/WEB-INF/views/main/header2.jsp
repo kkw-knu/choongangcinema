@@ -60,10 +60,10 @@
 					<li><a href="#" style="display: initial;">커뮤니티</a></li>
 					<li><a href="#" title="스토어">스토어</a></li>
 					<li class=""><a href="#" class="gnb-txt-store" title="소통">스토어</a></li>
-					<li class=""><a href="#" class="gnb-txt-theater" title="극장">극장</a>
+					<li class=""><a href="${path}/list/pageNum/1" class="gnb-txt-theater" title="극장">극장</a>
 						<div class="gnb-depth2">
 							<ul>
-								<li><a href="#">영화게시판</a></li>
+								<li><a href="${path}/list/pageNum/1">영화게시판</a></li>
 								<li><a href="#">잡담게시판</a></li>
 							</ul>
 						</div></li>

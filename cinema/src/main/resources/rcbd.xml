@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rcbdns">
+	<select id="list" parameterType="integer" resultType="rcbd">
+		select * from replycinemaBoard where bno=#{bno} order by rno
+	</select>
+	<update id="delete" parameterType="integer">
+		update replycinemaBoard set del='y' where rno=#{rno}
+	</update>
+	<update id="update" parameterType="rcbd"> 
+		update replycinemaBoard set replytext=#{replytext},
+			updatedate=sysdate where rno=#{rno}
+	</update>
+	<insert id="insert" parameterType="rcbd">
+		<selectKey keyProperty="rno" order="BEFORE" resultType="integer">
+			select nvl(max(rno), 0) + 1 rno from replycinemaBoard
+		</selectKey>
+		insert into replycinemaBoard values (#{rno}, #{bno},#{replytext},
+			#{replyer},sysdate,sysdate,'n')
+	</insert>
+</mapper> 

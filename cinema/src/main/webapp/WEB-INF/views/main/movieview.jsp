@@ -43,23 +43,30 @@
     		</div>
     	</div>
     	<div class="inner-wrap">
-    	<h2>줄거리...</h2><br>
-    	<div class="txt">${movie.mv_content }</div>
-    	<br>
-    	<div class="movie-info">
-	    	<div class="line">
-	    		<p>감독명 : ${movie.mv_director }</p>
-	    		<p>장르 : ${movie.mv_genre }</p>
-	    		<p>상영시간 : ${movie.mv_time }(분)</p>
-	    		<p>영화등급 :
-	    		<c:if test="${movie.mv_grade == 'age-all' }">전체이용가</c:if>
-	    		<c:if test="${movie.mv_grade == 'age-12' }">12세이용가</c:if>
-	    		<c:if test="${movie.mv_grade == 'age-15' }">15세이용가</c:if>
-	    		<c:if test="${movie.mv_grade == 'age-18' }">청소년이용불가</c:if>
-	    		</p>
-	    		<p>개봉일자 : ${movie.mv_startdate }</p>
+	    	<h2>줄거리...</h2><br>
+	    	<div class="txt">${movie.mv_content }</div>
+	    	<br>
+	    	<div class="movie-info">
+		    	<div class="line">
+		    		<p>감독명 : ${movie.mv_director }</p>
+		    		<p>장르 : ${movie.mv_genre }</p>
+		    		<p>상영시간 : ${movie.mv_time }(분)</p>
+		    		<p>영화등급 :
+		    		<c:if test="${movie.mv_grade == 'age-all' }">전체이용가</c:if>
+		    		<c:if test="${movie.mv_grade == 'age-12' }">12세이용가</c:if>
+		    		<c:if test="${movie.mv_grade == 'age-15' }">15세이용가</c:if>
+		    		<c:if test="${movie.mv_grade == 'age-18' }">청소년이용불가</c:if>
+		    		</p>
+		    		<p>개봉일자 : ${movie.mv_startdate }</p>
+		    	</div>
 	    	</div>
-    	</div>
+	    	<c:set var="id" value="${sessionScope.mid}"></c:set>
+			<c:if test="${empty id}">
+				
+			</c:if>
+			<c:if test="${not empty id}">
+				
+			</c:if>
     	</div>
 	<%@ include file="footer.jsp"%>
 </body>

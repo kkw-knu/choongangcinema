@@ -3,12 +3,18 @@
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="movie" type="com.ch.cinema.model.Movie"/>
-		<typeAlias type="com.ch.cinema.model.Moviem" alias="moviem"/>
+		<typeAlias alias="movie" type="com.ch.cinema.model.Movie" />
+		<typeAlias type="com.ch.cinema.model.Moviem" alias="moviem" />
+		<typeAlias type="com.ch.cinema.model.CinemaBoard"
+			alias="board" />
+		<typeAlias type="com.ch.cinema.model.ReplyCinemaBoard"
+			alias="rcbd" />
 	</typeAliases>
 	<!-- 메퍼정보 설정 -->
 	<mappers>
-		<mapper resource="movie.xml"/>
-		<mapper resource="moviem.xml"/>
+		<mapper resource="movie.xml" />
+		<mapper resource="moviem.xml" />
+		<mapper resource="board.xml" />
+		<mapper resource="rcbd.xml" />
 	</mappers>
 </configuration>
