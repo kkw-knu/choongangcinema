@@ -60,14 +60,56 @@
 		    		<p>개봉일자 : ${movie.mv_startdate }</p>
 		    	</div>
 	    	</div>
+	    	<br>
+	    	<div>
+		    	<h3>관람평 작성하기</h3>
+		    	<h5>총 0 개의 관람평이 있습니다.</h5>
+	    	</div>
+	    	<form>
 	    	<c:set var="id" value="${sessionScope.mid}"></c:set>
 			<c:if test="${empty id}">
-				
+				<div class="rv_div">
+					<div class="inbox">
+						<textarea id="empty_text" class="text" rows="3" cols="100"></textarea>
+						<label for="empty_text" style="display:inline;" class="guide">
+							관람평을 작성하기위해서는
+							<a href="#" style="font-weight:700; color:inherit; text-decoration: underline;">로그인</a>
+							이 필요합니다.
+						</label>
+					</div>
+				</div>
 			</c:if>
 			<c:if test="${not empty id}">
-				
+				<div class="rv_div">
+					<div class="inbox">
+					<div style="font-weight:700; padding-top: 10px;">
+						<%=session.getAttribute("mid") %>
+					</div>
+						<input type="hidden" name="rv_id" value="<%=session.getAttribute("mid") %>">
+						<input type="hidden" name="rv_title" value="${movie.mv_title }">
+						<textarea id="empty_text" name="rv_content" class="text text2" rows="3" cols="130" placeholder="관람평을 남겨주세요"></textarea>
+					</div>
+					<div align="right">
+						평점 : 
+						<select name="rv_ev">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10" selected>10</option>
+						</select>
+						<input type="submit" class="btn btn-defalut" value="등록하기">
+					</div>
+				</div>
 			</c:if>
+			</form>
     	</div>
+    	<br>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>

@@ -17,4 +17,9 @@
 	#header.no-bg #gnb>ul>li>a.gnb-txt-theater{background-image:url("${path}/resources/images/소통.png")}
 	#footer .footer-bottom .ci{background-image:url("${path}/resources/images/중앙시네마.png")}
 	#header.no-bg .ci a{background-image:url("${path}/resources/images/중앙시네마.png")}
+	.rv_div {background-color:#fff; border:1px solid #b3b3b3; line-heihgt:1.25em; text-align: left; margin-top:3px;}
+	.inbox {position:relative; padding:0 15px; background-color: #fff;}
+	.text2 {height:72px;}
+	.text {display:block; position: relative; overflow-x:hidden; overflow-y: auto; padding: 6px 0 0; padding-right:16px; border: none; resize:none}
+	.guide {position:absolute; top: 6px; right: 25px; bottom: 5px; left:15px; z-index:10; border:none; color: #a1a1a1; line-height: 1.5; cursor:default;}
 </style>
