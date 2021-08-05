@@ -22,11 +22,11 @@ import com.ch.cinema.service.MovieService;
 public class MovieController {
 	@Autowired
 	private MovieService ms;
-	@RequestMapping("main.do")
+	@RequestMapping("/main.do")
 	public String main() {
 		return "/main/main";
 	}
-	@RequestMapping("movielist.do")
+	@RequestMapping("/movielist.do")
 	public String movielist(Movie movie, String pageNum, Model model) {
 		if (pageNum == null || pageNum.equals("")) pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);

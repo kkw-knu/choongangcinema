@@ -6,6 +6,19 @@
 <head>
 <meta charset="UTF-8">
 <title>중앙시네마</title>
+<script type="text/javascript">
+	$(function() { 
+		$('#reviewtable').load("${path}/moviereviewlist/mv_num/${movie.mv_num}")
+		$('#reviewInsert').click(function() {
+			var sendData = $('#frm1').serialize();
+			$.post('reviewInsert.do', sendData, function(data) {
+				alert("관람평이 작성 되었습니다");
+				$('#reviewtable').html(data);
+				frm1.rv_content.value=""; // 댓글 지우기
+			});	
+		});
+	});
+</script>
 </head>
 <body>
 	<%@ include file="header2.jsp"%>
@@ -65,13 +78,13 @@
 		    	<h3>관람평 작성하기</h3>
 		    	<h5>총 0 개의 관람평이 있습니다.</h5>
 	    	</div>
-	    	<form>
+	    	<form action="" name="frm1" id="frm1">
 	    	<c:set var="id" value="${sessionScope.mid}"></c:set>
 			<c:if test="${empty id}">
 				<div class="rv_div">
 					<div class="inbox">
-						<textarea id="empty_text" class="text" rows="3" cols="100"></textarea>
-						<label for="empty_text" style="display:inline;" class="guide">
+						<textarea id="rv_content" class="text" rows="3" cols="100"></textarea>
+						<label for="rv_content" style="display:inline;" class="guide">
 							관람평을 작성하기위해서는
 							<a href="#" style="font-weight:700; color:inherit; text-decoration: underline;">로그인</a>
 							이 필요합니다.
@@ -82,12 +95,13 @@
 			<c:if test="${not empty id}">
 				<div class="rv_div">
 					<div class="inbox">
-					<div style="font-weight:700; padding-top: 10px;">
-						<%=session.getAttribute("mid") %>
-					</div>
+						<div style="font-weight:700; padding-top: 10px;">
+							<%=session.getAttribute("mid") %>
+						</div>
 						<input type="hidden" name="rv_id" value="<%=session.getAttribute("mid") %>">
 						<input type="hidden" name="rv_title" value="${movie.mv_title }">
-						<textarea id="empty_text" name="rv_content" class="text text2" rows="3" cols="130" placeholder="관람평을 남겨주세요"></textarea>
+						<input type="hidden" name="rv_mv_num" value="${movie.mv_num }">
+						<textarea id="rv_content" name="rv_content" class="text text2" rows="3" cols="130" placeholder="관람평을 남겨주세요"></textarea>
 					</div>
 					<div align="right">
 						평점 : 
@@ -103,11 +117,12 @@
 							<option value="9">9</option>
 							<option value="10" selected>10</option>
 						</select>
-						<input type="submit" class="btn btn-defalut" value="등록하기">
+						<input type="button" class="btn btn-defalut" value="등록하기" id="reviewInsert">
 					</div>
 				</div>
 			</c:if>
 			</form>
+			<div id="reviewtable"></div>
     	</div>
     	<br>
 	<%@ include file="footer.jsp"%>
