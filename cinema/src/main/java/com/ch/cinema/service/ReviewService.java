@@ -12,4 +12,6 @@ public interface ReviewService {
 
 	List<Review> list(int num);
 
+	int total(int mv_num);
+
 }

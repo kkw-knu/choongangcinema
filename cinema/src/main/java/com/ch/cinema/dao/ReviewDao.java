@@ -12,4 +12,6 @@ public interface ReviewDao {
 
 	List<Review> list(int mv_num);
 
+	int total(int mv_num);
+
 }

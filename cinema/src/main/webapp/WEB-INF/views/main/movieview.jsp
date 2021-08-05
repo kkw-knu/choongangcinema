@@ -76,7 +76,7 @@
 	    	<br>
 	    	<div>
 		    	<h3>관람평 작성하기</h3>
-		    	<h5>총 0 개의 관람평이 있습니다.</h5>
+		    	<h5>총 ${totalcnt } 개의 관람평이 있습니다.</h5>
 	    	</div>
 	    	<form action="" name="frm1" id="frm1">
 	    	<c:set var="id" value="${sessionScope.mid}"></c:set>

@@ -15,4 +15,7 @@
 	<select id="list" parameterType="integer" resultType="review">
 		select * from review_mv where rv_mv_num=#{mv_num} order by rv_num desc
 	</select>
+	<select id="total" parameterType="integer" resultType="integer">
+		select count(*) from review_mv where rv_mv_num=#{mv_num}
+	</select>
 </mapper>

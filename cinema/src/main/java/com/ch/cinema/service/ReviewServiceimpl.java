@@ -21,4 +21,7 @@ public class ReviewServiceimpl implements ReviewService{
 	public List<Review> list(int mv_num) {
 		return rd.list(mv_num);
 	}
+	public int total(int mv_num) {
+		return rd.total(mv_num);
+	}
 }

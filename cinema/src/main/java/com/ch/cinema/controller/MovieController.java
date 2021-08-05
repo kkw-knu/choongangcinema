@@ -14,14 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ch.cinema.service.PagingBean;
 import com.ch.cinema.model.Movie;
 import com.ch.cinema.service.MovieService;
+import com.ch.cinema.service.PagingBean;
+import com.ch.cinema.service.ReviewService;
 
 @Controller
 public class MovieController {
 	@Autowired
 	private MovieService ms;
+	@Autowired
+	private ReviewService rs;
 	@RequestMapping("/main.do")
 	public String main() {
 		return "/main/main";
@@ -77,7 +80,9 @@ public class MovieController {
 	@RequestMapping("movieview.do")
 	public String movieview(int mv_num, String pageNum, Model model) {
 		Movie movie = ms.select(mv_num);
+		int totalcnt = rs.total(mv_num);
 		model.addAttribute("movie", movie);
+		model.addAttribute("totalcnt", totalcnt);
 		model.addAttribute("pageNum", pageNum);
 		return "/main/movieview";
 	}

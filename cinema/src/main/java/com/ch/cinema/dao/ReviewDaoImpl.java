@@ -22,4 +22,7 @@ public class ReviewDaoImpl implements ReviewDao{
 	public List<Review> list(int mv_num) {
 		return sst.selectList("reviewns.list", mv_num);
 	}
+	public int total(int mv_num) {
+		return sst.selectOne("reviewns.total", mv_num);
+	}
 }
