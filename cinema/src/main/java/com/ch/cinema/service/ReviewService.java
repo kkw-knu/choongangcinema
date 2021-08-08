@@ -10,7 +10,7 @@ public interface ReviewService {
 
 	void insert(Review review);
 
-	List<Review> list(int num);
+	List<Review> list(Review review);
 
 	int total(int mv_num);
 

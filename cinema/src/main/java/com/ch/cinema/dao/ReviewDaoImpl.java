@@ -19,8 +19,8 @@ public class ReviewDaoImpl implements ReviewDao{
 		sst.insert("reviewns.insert", review);
 		
 	}
-	public List<Review> list(int mv_num) {
-		return sst.selectList("reviewns.list", mv_num);
+	public List<Review> list(Review review) {
+		return sst.selectList("reviewns.list", review);
 	}
 	public int total(int mv_num) {
 		return sst.selectOne("reviewns.total", mv_num);

@@ -10,7 +10,7 @@ public interface ReviewDao {
 
 	void insert(Review review);
 
-	List<Review> list(int mv_num);
+	List<Review> list(Review review);
 
 	int total(int mv_num);
 

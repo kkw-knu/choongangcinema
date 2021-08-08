@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ch.cinema.model.Movie;
+import com.ch.cinema.model.Review;
 import com.ch.cinema.service.MovieService;
 import com.ch.cinema.service.PagingBean;
 import com.ch.cinema.service.ReviewService;
@@ -78,9 +79,25 @@ public class MovieController {
 		return "/main/movieinsert";
 	}
 	@RequestMapping("movieview.do")
-	public String movieview(int mv_num, String pageNum, Model model) {
-		Movie movie = ms.select(mv_num);
+	public String movieview(int mv_num, String pageNum, Review review, String pageNum1, Model model) {
+		if (pageNum1 == null || pageNum1.equals("")) pageNum1 = "1";
+		int currentPage = Integer.parseInt(pageNum1);
+		int rowPerPage = 10;
 		int totalcnt = rs.total(mv_num);
+		int startRow = (currentPage - 1) * rowPerPage + 1;
+		int endRow = startRow + rowPerPage - 1;
+		review.setStartRow(startRow);
+		review.setEndRow(endRow);
+		review.setMv_num(mv_num);
+		Movie movie = ms.select(mv_num);
+		List<Review> rvlist = rs.list(review);
+		int num = totalcnt - startRow + 1;
+		PagingBean pb = new PagingBean(currentPage, rowPerPage, totalcnt);
+		model.addAttribute("mv_num", mv_num);
+		model.addAttribute("movie", movie);
+		model.addAttribute("rvlist", rvlist);
+		model.addAttribute("num", num);
+		model.addAttribute("pb", pb);
 		model.addAttribute("movie", movie);
 		model.addAttribute("totalcnt", totalcnt);
 		model.addAttribute("pageNum", pageNum);

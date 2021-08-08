@@ -12,4 +12,7 @@ public class Review {
 	private String rv_content;
 	private int rv_ev;
 	private Date rv_date; 
+	private int startRow;
+	private int endRow;
+	private int mv_num;
 }

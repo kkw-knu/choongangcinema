@@ -12,8 +12,10 @@
 		insert into review_mv values (#{rv_num},#{rv_mv_num}, #{rv_title},#{rv_id},
 			#{rv_content},#{rv_ev},sysdate)
 	</insert>
-	<select id="list" parameterType="integer" resultType="review">
-		select * from review_mv where rv_mv_num=#{mv_num} order by rv_num desc
+	<select id="list" parameterType="review" resultType="review">
+		select * from (select a.*, rowNum rn from (select * from review_mv
+			order by rv_num desc) a)
+				where rv_mv_num=#{mv_num} and rn between #{startRow} and #{endRow}
 	</select>
 	<select id="total" parameterType="integer" resultType="integer">
 		select count(*) from review_mv where rv_mv_num=#{mv_num}

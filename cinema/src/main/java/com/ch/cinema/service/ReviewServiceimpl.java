@@ -18,8 +18,8 @@ public class ReviewServiceimpl implements ReviewService{
 	public void insert(Review review) {
 		rd.insert(review);
 	}
-	public List<Review> list(int mv_num) {
-		return rd.list(mv_num);
+	public List<Review> list(Review review) {
+		return rd.list(review);
 	}
 	public int total(int mv_num) {
 		return rd.total(mv_num);
