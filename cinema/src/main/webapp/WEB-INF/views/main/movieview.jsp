@@ -126,23 +126,23 @@
 			<div align="center">
 	            <ul class="pagination">
 	            	<c:if test="${pb.startPage > pb.pagePerBlock }">
-	            		<li><a href="moviereviewlist/mv_num/{mv_num}?pageNum1=1">
+	            		<li><a id="" href="moviereviewlist/mv_num/${mv_num}?pageNum1=1">
 							<span class="glyphicon glyphicon-backward"></span></a></li>
-						<li><a href="moviereviewlist/mv_num/{mv_num}?pageNum1=${pb.startPage-1 }">
+						<li><a id="" href="moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.startPage-1 }">
 							<span class="glyphicon glyphicon-triangle-left"></span></a></li>
 	            	</c:if>
 	            	<c:forEach var="i" begin="${pb.startPage }" end="${pb.endPage }">
 						<c:if test="${pb.currentPage == i }">
-							<li class="active"><a href="moviereviewlist/mv_num/{mv_num}?pageNum1=${i}">${i}</a></li>
+							<li class="active"><a id="" href="moviereviewlist/mv_num/${mv_num}?pageNum1=${i}">${i}</a></li>
 						</c:if>
 						<c:if test="${pb.currentPage != i }">
-							<li><a href="moviereviewlist/mv_num/{mv_num}?pageNum1=${i}">${i}</a></li>
+							<li><a id="" href="moviereviewlist/mv_num/${mv_num}?pageNum1=${i}">${i}</a></li>
 						</c:if>			
 					</c:forEach>
 	            	<c:if test="${pb.endPage < pb.totalPage}">
-						<li><a href="moviereviewlist/mv_num/{mv_num}?pageNum1=${pb.endPage+1 }">
+						<li><a id="" href="moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.endPage+1 }">
 							<span class="glyphicon glyphicon-triangle-right"></span></a></li>
-						<li><a href="moviereviewlist/mv_num/{mv_num}?pageNum1=${pb.totalPage}">
+						<li><a id="" href="moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.totalPage}">
 							<span class="glyphicon glyphicon-forward"></span></a></li>
 					</c:if>
 	            </ul>
