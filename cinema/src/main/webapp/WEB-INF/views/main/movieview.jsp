@@ -126,24 +126,50 @@
 			<div align="center">
 	            <ul class="pagination">
 	            	<c:if test="${pb.startPage > pb.pagePerBlock }">
-	            		<li><a id="" href="moviereviewlist/mv_num/${mv_num}?pageNum1=1">
-							<span class="glyphicon glyphicon-backward"></span></a></li>
-						<li><a id="" href="moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.startPage-1 }">
-							<span class="glyphicon glyphicon-triangle-left"></span></a></li>
+	            	<script type="text/javascript">
+				    	$(function() { 
+				    		$('#startpage').click(function(){
+				    			$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=1")
+				    		});
+				    		$('#prepage').click(
+				    				$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.startPage-1 }")
+				    		);
+				    		$('#nextpage').click(
+				    				$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.endPage+1 }")
+				    		);
+				    		$('#endpage').click(
+				    				$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.totalPage}")
+				    		);
+				    		$(function() { 
+					    		$('#page').click(function(){
+					    			alert("${i}로 이동");
+				    				$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=${i}")
+					    		});
+					    	});
+				    	});
+			    	</script>
+	            		<li><button id="startpage"><span class="glyphicon glyphicon-backward"></span></button></li>
+						<li><button id="prepage"><span class="glyphicon glyphicon-triangle-left"></span></button></li>
 	            	</c:if>
 	            	<c:forEach var="i" begin="${pb.startPage }" end="${pb.endPage }">
+		            	<script type="text/javascript">
+					    	$(function() { 
+					    		$('#page${i}').click(function(){
+					    			alert("${i}로 이동");
+				    				$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=${i}")
+					    		});
+					    	});
+				    	</script>
 						<c:if test="${pb.currentPage == i }">
-							<li class="active"><a id="" href="moviereviewlist/mv_num/${mv_num}?pageNum1=${i}">${i}</a></li>
+							<li class="active"><button id="page${i}">${i}</button></li>
 						</c:if>
 						<c:if test="${pb.currentPage != i }">
-							<li><a id="" href="moviereviewlist/mv_num/${mv_num}?pageNum1=${i}">${i}</a></li>
+							<li><button id="page${i}">${i}</button></li>
 						</c:if>			
 					</c:forEach>
 	            	<c:if test="${pb.endPage < pb.totalPage}">
-						<li><a id="" href="moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.endPage+1 }">
-							<span class="glyphicon glyphicon-triangle-right"></span></a></li>
-						<li><a id="" href="moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.totalPage}">
-							<span class="glyphicon glyphicon-forward"></span></a></li>
+						<li><button id="nextpage"><span class="glyphicon glyphicon-triangle-right"></span></button></li>
+						<li><button id="endpage"><span class="glyphicon glyphicon-forward"></span></button></li>
 					</c:if>
 	            </ul>
 			</div>
