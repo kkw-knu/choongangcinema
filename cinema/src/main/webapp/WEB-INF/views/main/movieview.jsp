@@ -19,6 +19,12 @@
 		});
 	});
 </script>
+<script type="text/javascript">
+	function logingo(){
+		alert("로그인이 필요한 기능입니다.");
+		location.href="loginForm";
+	}
+</script>
 </head>
 <body>
 	<%@ include file="header2.jsp"%>
@@ -83,10 +89,10 @@
 			<c:if test="${empty id}">
 				<div class="rv_div">
 					<div class="inbox">
-						<textarea id="rv_content" class="text" rows="3" cols="100"></textarea>
+						<textarea id="rv_content" class="text" rows="3" cols="100" onclick="logingo()"></textarea>
 						<label for="rv_content" style="display:inline;" class="guide">
 							관람평을 작성하기위해서는
-							<a href="#" style="font-weight:700; color:inherit; text-decoration: underline;">로그인</a>
+							<a style="font-weight:700; color:inherit; text-decoration: underline;">로그인</a>
 							이 필요합니다.
 						</label>
 					</div>

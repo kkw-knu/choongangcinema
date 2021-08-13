@@ -17,11 +17,14 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ch.cinema.model.Movie;
 import com.ch.cinema.model.Review;
 import com.ch.cinema.service.MovieService;
+import com.ch.cinema.service.MvlikeService;
 import com.ch.cinema.service.PagingBean;
 import com.ch.cinema.service.ReviewService;
 
 @Controller
 public class MovieController {
+	@Autowired
+	private MvlikeService mls;
 	@Autowired
 	private MovieService ms;
 	@Autowired
