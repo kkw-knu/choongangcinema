@@ -131,21 +131,21 @@
 				    		$('#startpage').click(function(){
 				    			$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=1")
 				    		});
-				    		$('#prepage').click(
-				    				$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.startPage-1 }")
-				    		);
-				    		$('#nextpage').click(
-				    				$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.endPage+1 }")
-				    		);
-				    		$('#endpage').click(
-				    				$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.totalPage}")
-				    		);
-				    		$(function() { 
-					    		$('#page').click(function(){
-					    			alert("${i}로 이동");
-				    				$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=${i}")
-					    		});
-					    	});
+				    	});
+				    	$(function() { 
+				    		$('#prepage').click(function(){
+			    				$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.startPage-1 }")
+			    			});
+				    	});
+				    	$(function() { 
+				    		$('#nextpage').click(function(){
+			    				$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.endPage+1 }")
+			    			});
+				    	});
+				    	$(function() { 
+				    		$('#endpage').click(function(){
+			    				$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=${pb.totalPage}")
+			    			});
 				    	});
 			    	</script>
 	            		<li><button id="startpage"><span class="glyphicon glyphicon-backward"></span></button></li>
@@ -155,7 +155,6 @@
 		            	<script type="text/javascript">
 					    	$(function() { 
 					    		$('#page${i}').click(function(){
-					    			alert("${i}로 이동");
 				    				$('#reviewtable').load("${path}/moviereviewlist/mv_num/${mv_num}?pageNum1=${i}")
 					    		});
 					    	});
