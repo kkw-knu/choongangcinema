@@ -105,6 +105,6 @@ public class MovieController {
 		model.addAttribute("totalcnt", totalcnt);
 		model.addAttribute("pageNum", pageNum);
 		return "/main/movieview";
-	}
+	 }
 	
 }
