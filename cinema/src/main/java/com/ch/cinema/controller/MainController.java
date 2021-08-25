@@ -37,12 +37,14 @@ public class MainController {
 		if(moviem.getMid().equals("admin") && moviem.getPass().equals("admin")) {
 				result = 2;
 				session.setAttribute("mid", moviem.getMid());
+				session.setAttribute("mnum", mv.getMnum());
 			}		
 		else{
 			if(mv==null) result = -1;
 			else if (mv.getPass().equals(moviem.getPass())) {
 				result = 1;	
 				session.setAttribute("mid", moviem.getMid());
+				session.setAttribute("mnum", mv.getMnum());
 			}}
 			model.addAttribute("mv",mv);
 			model.addAttribute("result",result);

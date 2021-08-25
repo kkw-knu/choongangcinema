@@ -5,5 +5,6 @@ import lombok.Data;
 @Data
 public class Mvlike {
 	private String like_id;
-	private String like_title;
+	private int like_mv_num;
+	private int like_id_num;
 }

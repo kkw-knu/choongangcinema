@@ -47,7 +47,7 @@
 						</div>
 						<div class="btn-util">
 							<button type="button" class="button btn-like"> <!-- 찜 수임 -->
-								<i class="iconset ico-heart-toggle-gray intrstType on"></i>
+								<i class="iconset ico-heart-toggle-gray intrstType "></i>
 								<span>10</span><!-- 찜 수 -->
 							</button>
 							<span class="case movieStat4">

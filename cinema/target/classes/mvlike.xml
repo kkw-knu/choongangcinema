@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mvlikens">
+	<select id="total" parameterType="integer" resultType="integer">
+		select count(*) from mvlike where like_mv_num=#{like_mv_num}
+	</select>
+	<select id="like" parameterType="mvlike" resultType="integer">
+		select count(*) from mvlike where like_id=#{like_id} and like_mv_num=#{like_mv_num}
+	</select>
+	<insert id="insert" parameterType="mvlike">
+		insert into mvlike values(#{like_id},#{like_mv_num},#{like_id_num})
+	</insert>
+	<delete id="delete" parameterType="mvlike">
+		delete from mvlike where like_id=#{like_id} and like_mv_num=#{like_mv_num}
+	</delete>
+	<select id="select" parameterType="mvlike" resultType="integer">
+		select mnum from moviem where mid=#{like_id}
+	</select>
+	<select id="selectid" parameterType="integer" resultType="String">
+		select mid from moviem where mnum=#{like_id_num}
+	</select>
+</mapper>

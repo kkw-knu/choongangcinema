@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>중앙시네마</title>
+<c:set var="id" value="${sessionScope.mid}"></c:set>
+<c:set var="num" value="${sessionScope.mnum}"></c:set>
 <script type="text/javascript">
 	$(function() { 
 		$('#reviewtable').load("${path}/moviereviewlist/mv_num/${movie.mv_num}")
@@ -19,6 +21,26 @@
 		});
 	});
 </script>
+<c:if test="${empty id }">
+ <script type="text/javascript">
+	$(function() {
+		$('#likebutton').load("${path}/movielike/like_id_num/1/like_mv_num/${movie.mv_num}")
+	});
+</script>
+</c:if>
+<c:if test="${not empty id }">
+ <script type="text/javascript">
+	$(function() {
+		$('#likebutton').load("${path}/movielike/like_id_num/${sessionScope.mnum}/like_mv_num/${movie.mv_num}")
+		$('#likebutton').click(function() {
+			var sendData = $('#frm3').serialize();
+			$.post('likebutton.do', sendData, function(data) {
+				$('#likebutton').html(data);
+			});	
+		});
+	});
+</script>
+</c:if>
 <script type="text/javascript">
 	function logingo(){
 		alert("로그인이 필요한 기능입니다.");
@@ -52,11 +74,13 @@
     					<div><em style="font-size:2.1333em;">10</em> 점</div>
     				</div>
     				<div class="btn-util rate" style="display:inline-block;">
-    				<p class="tit">&nbsp;&nbsp;좋아요 수</p>
-    				<button type="button" class="btn btn-like" >
-    					<i class="iconset ico-heart-line"></i>
-    					<span>10</span>
-    				</button>
+	    				<form action="" name="frm3" id="frm3">
+	    				<input type="hidden" name="like_id" value="<%=session.getAttribute("mid") %>">
+							<input type="hidden" name="like_mv_num" value="${movie.mv_num }">
+							<input type="hidden" name="like_id_num" value="<%=session.getAttribute("mnum") %>">
+	    					<div class="btn-util rate" style="display:inline-block;" id="likebutton">
+							</div>
+	    				</form>
     				</div>
     			</div>
     		</div>
@@ -85,7 +109,6 @@
 		    	<h5>총 ${totalcnt } 개의 관람평이 있습니다.</h5>
 	    	</div>
 	    	<form action="" name="frm1" id="frm1">
-	    	<c:set var="id" value="${sessionScope.mid}"></c:set>
 			<c:if test="${empty id}">
 				<div class="rv_div">
 					<div class="inbox">

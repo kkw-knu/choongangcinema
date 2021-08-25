@@ -1,36 +1,36 @@
-----------------------------------------È¸¿ø
+----------------------------------------È¸ï¿½ï¿½
 create table moviem(
-	mid varchar2(30) primary key not null , --¾ÆÀÌµð
-	pass varchar2(30) not null, 			-- ºñ¹ø
-	name varchar2(30) not null, 			-- ÀÌ¸§ 
-	birth date not null,       				-- »ý³â¿ùÀÏ
-  	gender varchar2(30) not null, 			-- ¼ºº°
-	hp varchar2(30) not null,          		-- ÈÞ´ëÀüÈ­
-	address varchar2(100) not null, 		-- ÁÖ¼Ò
-	del varchar2(30) not null, 							-- Å»Åð¿©ºÎ	
+	mid varchar2(30) primary key not null , --ï¿½ï¿½ï¿½Ìµï¿½
+	pass varchar2(30) not null, 			-- ï¿½ï¿½ï¿½
+	name varchar2(30) not null, 			-- ï¿½Ì¸ï¿½ 
+	birth date not null,       				-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  	gender varchar2(30) not null, 			-- ï¿½ï¿½ï¿½ï¿½
+	hp varchar2(30) not null,          		-- ï¿½Þ´ï¿½ï¿½ï¿½È­
+	address varchar2(100) not null, 		-- ï¿½Ö¼ï¿½
+	del varchar2(30) not null, 							-- Å»ï¿½ð¿©ºï¿½	
 	joindate date default sysdate not null
 );
 select * from moviem; 
 drop table moviem;
 delete from moviem;
 insert into moviem(mid,pass,name,birth,gender,hp,address,del) 
-values('admin','admin','admin','2021-03-01','xx','000-000-0000','ÁÖ¼Ò-','n');
+values('admin','admin','admin','2021-03-01','xx','000-000-0000','dd','n');
 
 insert into moviem(mid,pass,name,birth,gender,hp,address,del) 
-values('1','1','¼º¸í1','2021-03-01','xx','000-000-0000','ÁÖ¼Ò-','n');
-----------------------------------¿µÈ­
+values('1','1','ï¿½ï¿½ï¿½ï¿½1','2021-03-01','xx','000-000-0000','ï¿½Ö¼ï¿½-','n');
+----------------------------------ï¿½ï¿½È­
 create table movie (
-	movieno Integer primary key, 	--¿µÈ­¾ÆÀÌµð
-	mname varchar2(50),				--Á¦¸ñ
-	mtime varchar2(50),				--»ó¿µ½Ã°£
-	director varchar2(50),			--°¨µ¶
-	actor varchar2(100),			--ÁÖ¿¬¹è¿ì
-	grade varchar2(50),				--°ü¶÷µî±Þ
-	picUrl varchar2(40),			--Æ÷½ºÅÍ
-	playdate Date,					--°³ºÀÀÏ
-	story varchar2(1000),			--¼³¸í
-	genre  varchar2(50),			--Àå¸£
-	meanScore Integer				--Æò±ÕÆòÁ¡			
+	movieno Integer primary key, 	--ï¿½ï¿½È­ï¿½ï¿½ï¿½Ìµï¿½
+	mname varchar2(50),				--ï¿½ï¿½ï¿½ï¿½
+	mtime varchar2(50),				--ï¿½ó¿µ½Ã°ï¿½
+	director varchar2(50),			--ï¿½ï¿½ï¿½ï¿½
+	actor varchar2(100),			--ï¿½Ö¿ï¿½ï¿½ï¿½ï¿½
+	grade varchar2(50),				--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	picUrl varchar2(40),			--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	playdate Date,					--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	story varchar2(1000),			--ï¿½ï¿½ï¿½ï¿½
+	genre  varchar2(50),			--ï¿½å¸£
+	meanScore Integer				--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½			
 );
 
 
@@ -62,16 +62,16 @@ DROP SEQUENCE movie_seq;
 
 select * from (select a.*, rowNum rn from(select * from movie where genre=#{genre} order by meanScore desc  )a) where rn BETWEEN 1 and 4
 
-select * from (select a.*, rowNum rn from(select * from movie where genre='¾×¼Ç' order by meanScore desc  )a) where rn BETWEEN 1 and 4
+select * from (select a.*, rowNum rn from(select * from movie where genre='ï¿½×¼ï¿½' order by meanScore desc  )a) where rn BETWEEN 1 and 4
 
 
-select * from movie where genre='¾×¼Ç' order by meanScore desc;
+select * from movie where genre='ï¿½×¼ï¿½' order by meanScore desc;
 
------------------------------------------ »ó¿µ°ü
+----------------------------------------- ï¿½ó¿µ°ï¿½
 create table cinema(
-	cid number not null PRIMARY KEY,   --¿µÈ­°ü ¾ÆÀÌµð 
-	cname varchar2(50) not null,  --¿µÈ­°ü ÀÌ¸§
-	cadd varchar2(100) not null    --¿µÈ­°ü ÁÖ¼Ò
+	cid number not null PRIMARY KEY,   --ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ 
+	cname varchar2(50) not null,  --ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ì¸ï¿½
+	cadd varchar2(100) not null    --ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ö¼ï¿½
 );
 create sequence cinema_seq start with 1 increment BY 1 maxvalue 10000;
 
@@ -81,7 +81,7 @@ drop sequence cinema_seq;
 
 select * from cinema;
 
-insert into cinema(cid,cname,cadd) values(cinema_seq.nextval,'°­³²¿µÈ­°ü','°­³²±¸');
+insert into cinema(cid,cname,cadd) values(cinema_seq.nextval,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
 create table svcboard(
 	num number not null PRIMARY KEY,
@@ -102,7 +102,7 @@ create table svcboard(
 select * from svcboard;
 
 
------------------------------------------------------°í°´¼¾ÅÍ
+-----------------------------------------------------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 create table svcboard(
 	num number not null PRIMARY KEY,
 	writer varchar2(50) not null,
@@ -122,26 +122,26 @@ create table svcboard(
 select * from svcboard;
 drop table svcboard;
 
------------------------------------------ÆòÁ¡
+-----------------------------------------ï¿½ï¿½ï¿½ï¿½
 create table bsBoard (
-	boardno Integer not null,														--°Ô½ÃÆÇ¹øÈ£
-	movie_id Integer,																--¿µÈ­¾ÆÀÌµð(fk)
+	boardno Integer not null,														--ï¿½Ô½ï¿½ï¿½Ç¹ï¿½È£
+	movie_id Integer,																--ï¿½ï¿½È­ï¿½ï¿½ï¿½Ìµï¿½(fk)
 	CONSTRAINT FK_bsBoard_movie FOREIGN KEY (movie_id) REFERENCES movie(movieno),
-	starscore varchar2(30),															--ÆòÁ¡
-	moviem_id varchar2(30),															--È¸¿ø¾ÆÀÌµð(fk)
+	starscore varchar2(30),															--ï¿½ï¿½ï¿½ï¿½
+	moviem_id varchar2(30),															--È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½(fk)
 	CONSTRAINT FK_bsBoard_moviem FOREIGN KEY (moviem_id) REFERENCES moviem(mid),	
-	content varchar2(100),															--ÇÑÁÙÆò
-	reportdate Date																	--µî·ÏÀÏ
+	content varchar2(100),															--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	reportdate Date																	--ï¿½ï¿½ï¿½ï¿½ï¿½
 );
 create sequence bsBoard_seq start with 1 increment by 1;
 
 drop table bsBoard;
 drop sequence board_seq;
 
-insert into bsBoard values(board_seq.nextval,9,5,'1','ÆòÁ¡¸Å±â±â',sysdate);
-insert into bsBoard values(board_seq.nextval,13,1,'1','ÆòÁ¡¸Å±â±â',sysdate);
-insert into bsBoard values(board_seq.nextval,14,4,'1','ÆòÁ¡¸Å±â±â',sysdate);
-insert into bsBoard values(board_seq.nextval,24,2,'1','ÆòÁ¡¸Å±â±â',sysdate);
+insert into bsBoard values(board_seq.nextval,9,5,'1','ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½',sysdate);
+insert into bsBoard values(board_seq.nextval,13,1,'1','ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½',sysdate);
+insert into bsBoard values(board_seq.nextval,14,4,'1','ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½',sysdate);
+insert into bsBoard values(board_seq.nextval,24,2,'1','ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½',sysdate);
 
 update bsbaord;
 select * from all_objects where object_type = 'sequence';
@@ -154,7 +154,7 @@ insert into bsboard	values(board_seq.nextval,2,
 		
 select * from bsboard where movie_id=1;
 
------------------------------»ó¿µÀÏÁ¤
+-----------------------------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 create table movieSchedule (
 	msno int  primary key,
 	startTime varchar2(30),
@@ -204,12 +204,12 @@ insert into movieSchedule values(23, '14:04', '15:04', '2021-04-11', '2021-03-01
 insert into movieSchedule values(24, '15:04', '16:04', '2021-04-11', '2021-03-01', '2021-04-30', 4, 1, 2 );
 insert into movieSchedule values(25, '16:04', '17:04', '2021-04-12', '2021-03-01', '2021-04-30', 5, 1, 2 );
 
-----------------------------------ÁÂ¼®
+----------------------------------ï¿½Â¼ï¿½
 create table Seat(
 	mid_sid varchar2(50) not null,  
 	msno_sid number not null,
-	sno varchar2(20) not null ,	-- ÁÂ¼®¹øÈ£
-	resnum_sid number not null, --¿¹¸Å¹øÈ£
+	sno varchar2(20) not null ,	-- ï¿½Â¼ï¿½ï¿½ï¿½È£
+	resnum_sid number not null, --ï¿½ï¿½ï¿½Å¹ï¿½È£
 	constraint PK_Seat primary key (mid_sid,msno_sid,sno),
 	constraint FK_Seat_moviem foreign key (mid_sid) references moviem(mid),
 	constraint FK_Seat_msno foreign key (msno_sid) references movieSchedule(msno),
@@ -219,16 +219,16 @@ create table Seat(
 select * from Seat;
 drop table Seat;
 delete from seat where mid_sid='a2' and msno_sid=1 and resnum_sid=23;
----------------------------------¿¹¸Å
+---------------------------------ï¿½ï¿½ï¿½ï¿½
 create table Reserve(
 	resnum number not null primary key, 
-	price number not null ,  -- °¡°Ý
-	numAdult number not null ,  -- ¼ºÀÎ ¿¹¸Å¼ö
-	numTeenager number not null ,  -- Ã»¼Ò³â ¿¹¸Å¼ö
-	numChild number not null ,  -- ¾î¸°ÀÌ ¿¹¸Å¼ö
-	dayReserve date default sysdate not null, -- ¿¹¸ÅÀÏ 
-	mid_reid varchar2(50) not null,  -- È¸¿ø id
-	msno_reid number not null,   -- »ó¿µÀÏÁ¤ id
+	price number not null ,  -- ï¿½ï¿½ï¿½ï¿½
+	numAdult number not null ,  -- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å¼ï¿½
+	numTeenager number not null ,  -- Ã»ï¿½Ò³ï¿½ ï¿½ï¿½ï¿½Å¼ï¿½
+	numChild number not null ,  -- ï¿½î¸°ï¿½ï¿½ ï¿½ï¿½ï¿½Å¼ï¿½
+	dayReserve date default sysdate not null, -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	mid_reid varchar2(50) not null,  -- È¸ï¿½ï¿½ id
+	msno_reid number not null,   -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ id
 	CONSTRAINT FK_Reserve_moviem FOREIGN KEY (mid_reid) REFERENCES moviem(mid),
 	CONSTRAINT FK_Reserve_msno FOREIGN KEY (msno_reid) REFERENCES movieSchedule(msno)
 );

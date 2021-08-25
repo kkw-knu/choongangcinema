@@ -10,11 +10,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ch.cinema.model.Movie;
+import com.ch.cinema.model.Mvlike;
 import com.ch.cinema.model.Review;
 import com.ch.cinema.service.MovieService;
 import com.ch.cinema.service.MvlikeService;
@@ -105,6 +108,41 @@ public class MovieController {
 		model.addAttribute("totalcnt", totalcnt);
 		model.addAttribute("pageNum", pageNum);
 		return "/main/movieview";
-	 }
+	}
+//	@RequestMapping("/movielike.do")
+//	public String movielike(String like_id,int like_mv_num, Model model) {
+//		Mvlike mvlike = new Mvlike();
+//		mvlike.setLike_id(like_id);
+//		mvlike.setLike_mv_num(like_mv_num);
+//		int totallike = mls.total(like_mv_num);
+//		int result = mls.like(mvlike);
+//		model.addAttribute("totallike", totallike);
+//		model.addAttribute("result", result);
+//		return "/main/movielikebutton";
+//	}
 	
+	@RequestMapping("/movielike/like_id_num/{like_id_num}/like_mv_num/{like_mv_num}")
+	public String movielike(@PathVariable int like_id_num, @PathVariable int like_mv_num, Model model) {
+		Mvlike mvlike = new Mvlike();
+		String like_id = mls.selectid(like_id_num);
+		mvlike.setLike_id(like_id);
+		mvlike.setLike_mv_num(like_mv_num);
+		mvlike.setLike_id_num(like_id_num);
+		int totallike = mls.total(like_mv_num);
+		int result = mls.like(mvlike);
+		model.addAttribute("totallike", totallike);
+		model.addAttribute("result", result);
+		return "/main/movielikebutton";
+	}
+	
+	@RequestMapping(value = "/likebutton.do", method = RequestMethod.POST)
+	public String likebutton(Mvlike mvlike) {
+		int result = mls.like(mvlike);
+		if(result == 0) {
+			mls.insert(mvlike);
+		}else {
+			mls.delete(mvlike);
+		}
+		return "redirect:/movielike/like_id_num/"+mvlike.getLike_id_num()+"/like_mv_num/"+mvlike.getLike_mv_num();
+	}
 }

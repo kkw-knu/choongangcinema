@@ -4,6 +4,7 @@
 <mapper namespace="moviemns">
 <!-- Use type aliases to avoid typing the full classname every time. -->
 	<resultMap id="moviemResult" type="moviem">
+		<result property="mnum" 		column="mnum"/>
 		<result property="mid" 			column="mid"/>
 		<result property="pass" 		column="pass"/>
 		<result property="name" 		column="name"/>
@@ -52,7 +53,10 @@
 	</select>
 	
 	<insert id="insert" parameterType="moviem">
-		insert into moviem values(#{mid},#{pass},#{name},#{birth},
+		<selectKey keyProperty="mnum" order="BEFORE" resultType="integer">
+			select nvl(max(mnum), 0) + 1 mnum from moviem
+		</selectKey>
+		insert into moviem values(#{mnum},#{mid},#{pass},#{name},#{birth},
 		#{gender},#{hp},#{address},'n',sysdate)
 	</insert>
 	<update id="update" parameterType="moviem">

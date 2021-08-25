@@ -5,6 +5,7 @@
 	<typeAliases>
 		<typeAlias alias="movie" type="com.ch.cinema.model.Movie" />
 		<typeAlias alias="review" type="com.ch.cinema.model.Review" />
+		<typeAlias alias="mvlike" type="com.ch.cinema.model.Mvlike" />
 		<typeAlias type="com.ch.cinema.model.Moviem" alias="moviem" />
 		<typeAlias type="com.ch.cinema.model.CinemaBoard"
 			alias="board" />
@@ -18,5 +19,6 @@
 		<mapper resource="moviem.xml" />
 		<mapper resource="board.xml" />
 		<mapper resource="rcbd.xml" />
+		<mapper resource="mvlike.xml" />
 	</mappers>
 </configuration>

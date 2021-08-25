@@ -3,6 +3,7 @@ package com.ch.cinema.model;
 import java.sql.Date;
 
 public class Moviem {
+	private int mnum;
 	private String mid;
 	private String pass;
 	private String name;
@@ -19,6 +20,12 @@ public class Moviem {
 	private String search;
 	private String keyword;
 	
+	public int getMnum() {
+		return mnum;
+	}
+	public void setMnum(int mnum) {
+		this.mnum = mnum;
+	}
 	public String getSearch() {
 		return search;
 	}
