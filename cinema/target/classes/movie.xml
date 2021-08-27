@@ -5,7 +5,7 @@
 	<insert id="movieinsert" parameterType="movie">
 		insert into movie values(#{mv_num},#{mv_title},#{mv_director},
 		 #{mv_genre},#{mv_grade},#{mv_img},#{mv_content},
-		 #{mv_startdate},#{mv_time})
+		 #{mv_startdate},#{mv_time},0)
 	</insert>
 	<select id="getMaxNum" resultType="integer">
 		select nvl(max(mv_num),0) + 1 from movie
@@ -21,4 +21,7 @@
 	<select id="select" parameterType="integer" resultType="movie">
 		select * from movie where mv_num=#{mv_num}
 	</select>
+	<update id="evupdate" parameterType="review">
+		update movie set mv_ev=(select round(avg(rv_ev),2) from review_mv group by rv_mv_num having rv_mv_num=#{rv_mv_num}) where mv_num=#{rv_mv_num}
+	</update>
 </mapper>

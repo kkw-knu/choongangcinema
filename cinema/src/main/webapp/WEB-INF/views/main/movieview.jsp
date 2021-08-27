@@ -71,7 +71,7 @@
     			<div class="info">
     				<div class="score">
     					<p class="tit">&nbsp;관객평점</p>
-    					<div><em style="font-size:2.1333em;">10</em> 점</div>
+    					<div><em style="font-size:2.1333em;">${movie.mv_ev }</em> 점</div>
     				</div>
     				<div class="btn-util rate" style="display:inline-block;">
 	    				<form action="" name="frm3" id="frm3">

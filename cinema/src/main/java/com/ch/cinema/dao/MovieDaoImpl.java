@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ch.cinema.model.Movie;
+import com.ch.cinema.model.Review;
 
 @Repository
 public class MovieDaoImpl implements MovieDao{
@@ -26,5 +27,8 @@ public class MovieDaoImpl implements MovieDao{
 	}
 	public Movie select(int mv_num) {
 		return sst.selectOne("moviens.select", mv_num);
+	}
+	public Object evupadte(Review review) {
+		return sst.update("moviens.evupdate", review);
 	}
 }

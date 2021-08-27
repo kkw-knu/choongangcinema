@@ -47,6 +47,7 @@ public class ReviewController {
 	@RequestMapping(value = "/reviewInsert.do", method = RequestMethod.POST)
 	public String reviewInsert(Review review) {
 		rs.insert(review);
+		ms.evupdate(review);
 		return "redirect:/moviereviewlist/mv_num/"+review.getRv_mv_num();
 	}
 }

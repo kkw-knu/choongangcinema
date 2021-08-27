@@ -60,7 +60,7 @@
 									<div class="my-score big">
 										<div class="preview">
 											<p class="tit">관람평</p>
-											<p class="number">0<span class="ir">점</span> <!-- 별점 리뷰넣으면서 넣을거 -->
+											<p class="number">${movie.mv_ev }<span class="ir">점</span> <!-- 별점 리뷰넣으면서 넣을거 -->
 										</div>
 									</div>
 								</a>
