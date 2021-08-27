@@ -109,18 +109,6 @@ public class MovieController {
 		model.addAttribute("pageNum", pageNum);
 		return "/main/movieview";
 	}
-//	@RequestMapping("/movielike.do")
-//	public String movielike(String like_id,int like_mv_num, Model model) {
-//		Mvlike mvlike = new Mvlike();
-//		mvlike.setLike_id(like_id);
-//		mvlike.setLike_mv_num(like_mv_num);
-//		int totallike = mls.total(like_mv_num);
-//		int result = mls.like(mvlike);
-//		model.addAttribute("totallike", totallike);
-//		model.addAttribute("result", result);
-//		return "/main/movielikebutton";
-//	}
-	
 	@RequestMapping("/movielike/like_id_num/{like_id_num}/like_mv_num/{like_mv_num}")
 	public String movielike(@PathVariable int like_id_num, @PathVariable int like_mv_num, Model model) {
 		Mvlike mvlike = new Mvlike();
@@ -144,5 +132,30 @@ public class MovieController {
 			mls.delete(mvlike);
 		}
 		return "redirect:/movielike/like_id_num/"+mvlike.getLike_id_num()+"/like_mv_num/"+mvlike.getLike_mv_num();
+	}
+	
+	@RequestMapping("/movielike1/like_id_num/{like_id_num}/like_mv_num/{like_mv_num}")
+	public String movielike1(@PathVariable int like_id_num, @PathVariable int like_mv_num, Model model) {
+		Mvlike mvlike = new Mvlike();
+		String like_id = mls.selectid(like_id_num);
+		mvlike.setLike_id(like_id);
+		mvlike.setLike_mv_num(like_mv_num);
+		mvlike.setLike_id_num(like_id_num);
+		int totallike = mls.total(like_mv_num);
+		int result = mls.like(mvlike);
+		model.addAttribute("totallike", totallike);
+		model.addAttribute("result", result);
+		return "/main/movielikebutton2";
+	}
+	
+	@RequestMapping(value = "/likebutton1.do", method = RequestMethod.POST)
+	public String likebutton1(Mvlike mvlike) {
+		int result = mls.like(mvlike);
+		if(result == 0) {
+			mls.insert(mvlike);
+		}else {
+			mls.delete(mvlike);
+		}
+		return "redirect:/movielike1/like_id_num/"+mvlike.getLike_id_num()+"/like_mv_num/"+mvlike.getLike_mv_num();
 	}
 }

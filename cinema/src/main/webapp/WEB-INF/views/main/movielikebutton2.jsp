@@ -8,24 +8,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- movieview에 들어가는 좋아요버튼을 위한 페이지 -->
+<!-- movielist에 들어가는 좋아요버튼을 위한 페이지 -->
 	<c:set var="id" value="${sessionScope.mid}"></c:set>
-	<p class="tit">&nbsp;&nbsp;좋아요 수</p>
 	<c:if test="${empty id}">
-		<button type="button" class="btn btn-like" onclick="logingo()">
+		<button type="button" class="button btn-like" onclick="logingo()">
     		<i class="iconset ico-heart-toggle-gray intrstType"></i>
     	<span>${totallike }</span>
-    </button>
+    	</button>
 	</c:if>
 	<c:if test="${not empty id}">
 		<c:if test="${result > 0 }">
-		<button type="button" class="btn btn-like">
+		<button type="button" class="button btn-like">
     		<i class="iconset ico-heart-toggle-gray intrstType on"></i>
     		<span>${totallike }</span>
 		</button>
 		</c:if>
 		<c:if test="${result == 0 }">
-		<button type="button" class="btn btn-like">
+		<button type="button" class="button btn-like">
     		<i class="iconset ico-heart-toggle-gray intrstType"></i>
     		<span>${totallike }</span>
 		</button>

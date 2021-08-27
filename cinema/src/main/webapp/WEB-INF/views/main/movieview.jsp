@@ -22,7 +22,7 @@
 	});
 </script>
 <c:if test="${empty id }">
- <script type="text/javascript">
+<script type="text/javascript">
 	$(function() {
 		$('#likebutton').load("${path}/movielike/like_id_num/1/like_mv_num/${movie.mv_num}")
 	});
