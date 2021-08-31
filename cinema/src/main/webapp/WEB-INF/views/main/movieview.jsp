@@ -87,8 +87,8 @@
     	</div>
     	<div class="inner-wrap">
     	<c:if test="${sessionScope.mid == 'admin'}">
-    		<button type="button" title="수정">수정</button>   
-    		<button type="button" title="삭제">삭제</button>
+    		<button type="button" title="수정" onclick="location.href='movieupdateForm.do?mv_num=${movie.mv_num }'">수정</button>   
+    		<button type="button" title="삭제" onclick="location.href='moviedeleteForm.do?mv_num=${movie.mv_num }'">삭제</button>
     		<br><br><br>
     	</c:if>
 	    	<h2>줄거리...</h2><br>
