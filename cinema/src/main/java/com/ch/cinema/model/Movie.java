@@ -14,7 +14,8 @@ public class Movie {
 	private String mv_content;
 	private Date mv_startdate;
 	private int mv_time;
-	// paging¿ë
+	private float mv_ev;
+	// paging
 	private int startRow;
 	private int endRow;
 }

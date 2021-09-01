@@ -22,7 +22,7 @@
 	});
 </script>
 <c:if test="${empty id }">
- <script type="text/javascript">
+<script type="text/javascript">
 	$(function() {
 		$('#likebutton').load("${path}/movielike/like_id_num/1/like_mv_num/${movie.mv_num}")
 	});
@@ -71,7 +71,7 @@
     			<div class="info">
     				<div class="score">
     					<p class="tit">&nbsp;관객평점</p>
-    					<div><em style="font-size:2.1333em;">10</em> 점</div>
+    					<div><em style="font-size:2.1333em;">${movie.mv_ev }</em> 점</div>
     				</div>
     				<div class="btn-util rate" style="display:inline-block;">
 	    				<form action="" name="frm3" id="frm3">
@@ -86,6 +86,11 @@
     		</div>
     	</div>
     	<div class="inner-wrap">
+    	<c:if test="${sessionScope.mid == 'admin'}">
+    		<button type="button" title="수정" onclick="location.href='movieupdateForm.do?mv_num=${movie.mv_num }'">수정</button>   
+    		<button type="button" title="삭제" onclick="location.href='moviedeleteForm.do?mv_num=${movie.mv_num }'">삭제</button>
+    		<br><br><br>
+    	</c:if>
 	    	<h2>줄거리...</h2><br>
 	    	<div class="txt">${movie.mv_content }</div>
 	    	<br>

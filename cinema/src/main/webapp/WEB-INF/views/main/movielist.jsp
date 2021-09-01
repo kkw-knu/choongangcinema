@@ -6,6 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>중앙시네마</title>
+<c:set var="id" value="${sessionScope.mid}"></c:set>
+<c:set var="num" value="${sessionScope.mnum}"></c:set>
+<script type="text/javascript">
+	function logingo(){
+		alert("로그인이 필요한 기능입니다.");
+		location.href="loginForm";
+	}
+</script>
 </head>
 <body>
 	<%@ include file="header2.jsp"%>
@@ -21,7 +29,27 @@
 			<ol class="list" id="movieList">
 				<c:if test="${not empty list }">
 					<c:forEach var="movie" items="${list }">
-					<li tabindex="0" class="no-img">
+					<c:if test="${empty id }">
+						<script type="text/javascript">
+							$(function() {
+								$('#likebutton${movie.mv_num }').load("${path}/movielike1/like_id_num/1/like_mv_num/${movie.mv_num}")
+							});
+						</script>
+					</c:if>
+					<c:if test="${not empty id }">
+						 <script type="text/javascript">
+							$(function() {
+								$('#likebutton${movie.mv_num }').load("${path}/movielike1/like_id_num/${sessionScope.mnum}/like_mv_num/${movie.mv_num}")
+								$('#likebutton${movie.mv_num }').click(function() {
+									var sendData = $('#frm${movie.mv_num }').serialize();
+									$.post('likebutton1.do', sendData, function(data) {
+										$('#likebutton${movie.mv_num }').html(data);
+									});	
+								});
+							});
+					</script>
+					</c:if>
+					<li tabindex="0" class="no-img" style="margin: 60px 0 0 60px;">
 						<div class="movie-list-info">
 							<img src="resources/upload/${movie.mv_img }" alt="${movie.mv_img }" class="poster lozad" onerror="noImg(this)">
 							<div class="movie-score" style="opacity:0;">
@@ -32,7 +60,7 @@
 									<div class="my-score big">
 										<div class="preview">
 											<p class="tit">관람평</p>
-											<p class="number">0<span class="ir">점</span> <!-- 별점 리뷰넣으면서 넣을거 -->
+											<p class="number">${movie.mv_ev }<span class="ir">점</span> <!-- 별점 리뷰넣으면서 넣을거 -->
 										</div>
 									</div>
 								</a>
@@ -46,14 +74,17 @@
 							<span class="date">개봉일 : ${movie.mv_startdate }</span>
 						</div>
 						<div class="btn-util">
-							<button type="button" class="button btn-like"> <!-- 찜 수임 -->
-								<i class="iconset ico-heart-toggle-gray intrstType "></i>
-								<span>10</span><!-- 찜 수 -->
-							</button>
+		    				<a id="likebutton${movie.mv_num }">
+							</a>
 							<span class="case movieStat4">
 								<a href="#" class="button gblue bokdBtn">예매</a>
 							</span>
 						</div>
+						<form action="" name="frm${movie.mv_num }" id="frm${movie.mv_num }">
+		    					<input type="hidden" name="like_id" value="<%=session.getAttribute("mid") %>">
+								<input type="hidden" name="like_mv_num" value="${movie.mv_num }">
+								<input type="hidden" name="like_id_num" value="<%=session.getAttribute("mnum") %>">
+		    			</form>
 					</li>
 					</c:forEach>
 				</c:if>

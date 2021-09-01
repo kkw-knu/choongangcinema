@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ch.cinema.dao.MovieDao;
 import com.ch.cinema.model.Movie;
+import com.ch.cinema.model.Review;
 
 @Service
 public class MovieServiceImpl implements MovieService{
@@ -27,4 +28,8 @@ public class MovieServiceImpl implements MovieService{
 	public Movie select(int mv_num) {
 		return md.select(mv_num);
 	}
+	public Object evupdate(Review review) {
+		return md.evupadte(review);
+	}
+
 }
