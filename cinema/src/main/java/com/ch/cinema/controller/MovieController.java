@@ -158,4 +158,15 @@ public class MovieController {
 		}
 		return "redirect:/movielike1/like_id_num/"+mvlike.getLike_id_num()+"/like_mv_num/"+mvlike.getLike_mv_num();
 	}
+	
+	@RequestMapping("moviedelete.do")
+	public String moviedelete(int mv_num, Model model) {
+		
+		return "/main/moviedelete";
+	}
+	@RequestMapping("movieupdateForm.do")
+	public String movieupdateForm(int mv_num, Model model) {
+		
+		return "/main/movieupdateForm";
+	}
 }
