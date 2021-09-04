@@ -31,4 +31,20 @@ public class MovieDaoImpl implements MovieDao{
 	public Object evupadte(Review review) {
 		return sst.update("moviens.evupdate", review);
 	}
+	public int delete(int mv_num) {
+		return sst.delete("moviens.delete", mv_num);
+	}
+	public Object likedelete(int mv_num) {
+		return sst.delete("moviens.likedelete", mv_num);
+	}
+	public Object reviewdelete(int mv_num) {
+		return sst.delete("moviens.reviewdelete", mv_num);
+	}
+	public int update(Movie movie) {
+		return sst.update("moviens.update",movie);
+	}
+	public Object rvupdate(Movie movie) {
+		return sst.update("moviens.rvupdate", movie);
+	}
+
 }

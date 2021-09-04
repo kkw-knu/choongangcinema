@@ -20,12 +20,15 @@ import com.ch.cinema.model.Movie;
 import com.ch.cinema.model.Mvlike;
 import com.ch.cinema.model.Review;
 import com.ch.cinema.service.MovieService;
+import com.ch.cinema.service.MoviemService;
 import com.ch.cinema.service.MvlikeService;
 import com.ch.cinema.service.PagingBean;
 import com.ch.cinema.service.ReviewService;
 
 @Controller
 public class MovieController {
+	@Autowired
+	private MoviemService mms;
 	@Autowired
 	private MvlikeService mls;
 	@Autowired
@@ -159,14 +162,49 @@ public class MovieController {
 		return "redirect:/movielike1/like_id_num/"+mvlike.getLike_id_num()+"/like_mv_num/"+mvlike.getLike_mv_num();
 	}
 	
+	@RequestMapping("moviedeleteForm.do")
+	public String moviedeleteForm(int mv_num, Model model) {
+		Movie movie = ms.select(mv_num);
+		model.addAttribute("movie", movie);
+		return "/main/moviedeleteForm";
+	}
+	
 	@RequestMapping("moviedelete.do")
-	public String moviedelete(int mv_num, Model model) {
-		
+	public String moviedelete(int mv_num, String adminPW, Model model) {
+		String PW = mms.pwselect();
+		int result = 0;
+		if(adminPW.equals(PW)) {
+			result = ms.delete(mv_num);
+			ms.likedelete(mv_num); //좋아요 삭제
+			ms.reviewdelete(mv_num); //리뷰삭제
+		}
+		else {
+			result = -1;
+		}
+		model.addAttribute("result", result);
 		return "/main/moviedelete";
 	}
+	
 	@RequestMapping("movieupdateForm.do")
 	public String movieupdateForm(int mv_num, Model model) {
-		
+		Movie movie = ms.select(mv_num);
+		model.addAttribute("movie", movie);
 		return "/main/movieupdateForm";
+	}
+	@RequestMapping("movieupdate.do")
+	public String movieupdate(Movie movie, String adminPW, Model model) {
+		String PW = mms.pwselect();
+		int result = 0;
+		if(adminPW.equals(PW)) {
+			result = ms.update(movie);
+			ms.rvupdate(movie); //리뷰에 저장된 title 변경
+		}
+		else {
+			result = -1;
+		}
+		model.addAttribute("result", result);
+		model.addAttribute("movie", movie);
+
+		return "/main/movieupdate";
 	}
 }

@@ -65,6 +65,9 @@
 	<update id="delete" parameterType="int">
 		update moviem set del='y' where mid=#{mid}
 	</update>
+	<select id="pwselect" resultType="String">
+		select pass from moviem where mid='admin'
+	</select>
 </mapper>
 
 
