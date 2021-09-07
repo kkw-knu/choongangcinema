@@ -31,5 +31,20 @@ public class MovieServiceImpl implements MovieService{
 	public Object evupdate(Review review) {
 		return md.evupadte(review);
 	}
+	public int delete(int mv_num) {
+		return md.delete(mv_num);
+	}
+	public Object likedelete(int mv_num) {
+		return md.likedelete(mv_num);
+	}
+	public Object reviewdelete(int mv_num) {
+		return md.reviewdelete(mv_num);
+	}
+	public int update(Movie movie) {
+		return md.update(movie);
+	}
+	public Object rvupdate(Movie movie) {
+		return md.rvupdate(movie);
+	}
 
 }

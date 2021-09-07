@@ -41,5 +41,8 @@ public class MoviemServiceImpl implements MoviemService{
 	public List<Moviem> getList(Moviem moviem) {
 		return md.getList(moviem);
 	}
+	public String pwselect() {
+		return md.pwselect();
+	}
 
 }

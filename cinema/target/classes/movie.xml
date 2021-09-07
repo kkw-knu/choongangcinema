@@ -24,4 +24,20 @@
 	<update id="evupdate" parameterType="review">
 		update movie set mv_ev=(select round(avg(rv_ev),2) from review_mv group by rv_mv_num having rv_mv_num=#{rv_mv_num}) where mv_num=#{rv_mv_num}
 	</update>
+	<delete id="delete" parameterType="integer">
+		delete from movie where mv_num=#{mv_num}
+	</delete>
+	<delete id="likedelete" parameterType="integer">
+		delete from mvlike where like_mv_num=#{mv_num}
+	</delete>
+	<delete id="reviewdelete" parameterType="integer">
+		delete from review_mv where rv_mv_num=#{mv_num}
+	</delete>
+	<update id="update" parameterType="movie">
+		update movie set mv_title=#{mv_title}, mv_director=#{mv_director}, mv_genre=#{mv_genre}, mv_grade=#{mv_grade},mv_content=#{mv_content},
+		 mv_startdate=#{mv_startdate},mv_time=#{mv_time} where mv_num=#{mv_num}
+	</update>
+	<update id="rvupdate" parameterType="movie">
+		update review_mv set rv_title=#{mv_title} where rv_mv_num=#{mv_num}
+	</update>
 </mapper>

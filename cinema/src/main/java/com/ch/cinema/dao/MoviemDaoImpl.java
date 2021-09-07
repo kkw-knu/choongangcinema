@@ -42,5 +42,8 @@ public class MoviemDaoImpl implements MoviemDao{
 	public List<Moviem> getList(Moviem moviem) {
 		return sst.selectList("moviemns.list", moviem);
 	}
+	public String pwselect() {
+		return sst.selectOne("moviemns.pwselect");
+	}
 	
 }

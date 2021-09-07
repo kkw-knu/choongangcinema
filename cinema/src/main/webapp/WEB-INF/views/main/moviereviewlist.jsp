@@ -22,7 +22,7 @@
 						${rv.rv_id }
 					</div>
 					<div>
-						<span>${rv.rv_content }</span>
+						<span id="rv_${rv.rv_num }">${rv.rv_content }</span>
 					</div>
 					<div>
 						<span>${rv.rv_date }</span>
