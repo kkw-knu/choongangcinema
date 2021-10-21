@@ -175,8 +175,8 @@ public class MovieController {
 		int result = 0;
 		if(adminPW.equals(PW)) {
 			result = ms.delete(mv_num);
-			ms.likedelete(mv_num); //좋아요 삭제
-			ms.reviewdelete(mv_num); //리뷰삭제
+			ms.likedelete(mv_num); 
+			ms.reviewdelete(mv_num); 
 		}
 		else {
 			result = -1;
@@ -197,7 +197,7 @@ public class MovieController {
 		int result = 0;
 		if(adminPW.equals(PW)) {
 			result = ms.update(movie);
-			ms.rvupdate(movie); //리뷰에 저장된 title 변경
+			ms.rvupdate(movie); 
 		}
 		else {
 			result = -1;
