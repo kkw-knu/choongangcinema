@@ -9,7 +9,13 @@
 <c:set var="id" value="${sessionScope.mid}"></c:set>
 <c:set var="num" value="${sessionScope.mnum}"></c:set>
 <script type="text/javascript">
-
+	function rvDelete(rv_num){
+		var sendData = 'rv_num='+rv_num;
+		$.post('${path}/rvDelete', senddata, function(data){
+			alert("리뷰가 삭제되었습니다");
+			$('#reviewtable').html(data);
+		})
+	}
 </script>
 </head>
 <body>

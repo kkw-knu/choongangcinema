@@ -50,4 +50,8 @@ public class ReviewController {
 		ms.evupdate(review);
 		return "redirect:/moviereviewlist/mv_num/"+review.getRv_mv_num();
 	}
+	@RequestMapping("/rvDelete")
+	public String rvDelete(Review review) {
+		return null;//여기다가 해야함
+	}
 }
